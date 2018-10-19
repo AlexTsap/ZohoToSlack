@@ -3,7 +3,7 @@ import { Get, Controller, Req, Res, Query, HttpStatus } from '@nestjs/common';
 
 @Controller()
 export class AppController {
-  @Get('/slack')
+  @Get('/slack-integrations')
   async root(
     @Req() req,
     @Res() res,
@@ -12,8 +12,7 @@ export class AppController {
     console.log(
       query.date,
       query.to,
-      query.from,
-      query.employee
+      query.from
     );
 
     return res.status(HttpStatus.OK).json([]);
