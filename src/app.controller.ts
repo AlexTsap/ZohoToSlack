@@ -12,7 +12,8 @@ export class AppController {
     console.log(
       query.date,
       query.to,
-      query.from
+      query.from,
+      query.employee
     );
 
     return res.status(HttpStatus.OK).json([]);
