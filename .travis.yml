@@ -6,8 +6,8 @@ notifications:
 
 stages:
 - name: lint
-- name: test
-- name: build
+#- name: test
+#- name: build
 - name: deploy to FireBase
 
 before_install:
@@ -20,15 +20,15 @@ jobs:
   - stage: lint
     install: true
     script: npm run lint
-  - stage: test
-    skip_cleanup: true,
-    script: npm run test
-  - stage: build
-    skip_cleanup: true
-    script: npm run build
+#  - stage: test
+#    skip_cleanup: true,
+#    script: npm run test
+#  - stage: build
+#    skip_cleanup: true
+#    script: npm run build
   - stage: deploy to FireBase
     if: (branch = development AND type = push)
     skip_cleanup: true
-    script: npm run build
+#    script: npm run build
     after_success:
     - firebase deploy --token $FIREBASE_TOKEN
